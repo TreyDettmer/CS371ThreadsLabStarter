@@ -36,11 +36,14 @@ public class MainActivity extends Activity
         //Let me know when someone adjusts the seekbar
         theSeekBar = (SeekBar)findViewById(R.id.seekBar);
         theSeekBar.setOnSeekBarChangeListener(this);
+
     }//onClick
 
     @Override
     public void onClick(View v) {
+
         myAV.postInvalidate();
+
     }
 
     @Override
@@ -54,4 +57,6 @@ public class MainActivity extends Activity
     public void onStartTrackingTouch(SeekBar seekBar) {}
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {}
+
+
 }
