@@ -24,6 +24,8 @@ public class StarAnimation extends Animation {
     /** ctor expects to be told the size of the animation canvas */
     public StarAnimation(int initWidth, int initHeight) {
         super(initWidth, initHeight);
+        StarChanger starChanger = new StarChanger(this);
+        starChanger.start();
     }
 
     /** whenever the canvas size changes, generate new stars */
@@ -74,7 +76,7 @@ public class StarAnimation extends Animation {
     /** the seekbar progress specifies the brightnes of the stars. */
     @Override
     public void progressChange(int newProgress) {
-        
+
         int numberOfStars = 9 * (newProgress) + 100;
         int currentNumberOfStars = field.size();
         if (currentNumberOfStars > numberOfStars)
