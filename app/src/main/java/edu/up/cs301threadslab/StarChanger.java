@@ -20,7 +20,7 @@ public class StarChanger extends Thread {
         {
             try
             {
-                Thread.sleep(40);
+                Thread.sleep(2);
             }
             catch (InterruptedException ex)
             {
