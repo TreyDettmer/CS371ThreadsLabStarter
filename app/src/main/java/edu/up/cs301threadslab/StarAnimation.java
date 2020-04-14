@@ -32,7 +32,7 @@ public class StarAnimation extends Animation {
     @Override
     public void setSize(int newWidth, int newHeight) {
         super.setSize(newWidth, newHeight);
-        synchronized (this) {
+        synchronized (field) {
             //Create the stars
             field = new Vector<Star>();
             for (int i = 0; i < INIT_STAR_COUNT; ++i) {
@@ -43,7 +43,7 @@ public class StarAnimation extends Animation {
 
     /** adds a randomly located star to the field */
     public void addStar() {
-        synchronized (this) {
+        synchronized (field) {
             //Ignore this call if the canvas hasn't been initialized yet
             if ((width <= 0) || (height <= 0)) return;
 
@@ -57,7 +57,7 @@ public class StarAnimation extends Animation {
 
     /** removes a random star from the field */
     public void removeStar() {
-        synchronized (this) {
+        synchronized (field) {
             if (field.size() > 100) {
                 int index = rand.nextInt(field.size());
                 field.remove(index);
@@ -68,7 +68,7 @@ public class StarAnimation extends Animation {
     /** draws the next frame of the animation */
     @Override
     public void draw(Canvas canvas) {
-        synchronized (this){
+        synchronized (field){
             for (Star s : field) {
                 s.draw(canvas);
                 if (this.twinkle) {
